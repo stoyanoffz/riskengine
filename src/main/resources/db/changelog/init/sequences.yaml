@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: sequences_01
+      author: risk_engine
+      dbms: postgresql
+      changes:
+        - createSequence:
+            sequenceName: blacklisted_countries_seq
+            startValue: 100
+            incrementBy: 100
+            maxValue: 9223372036854775807
+            minValue: 100
+            schemaName: public
+  - changeSet:
+      id: sequences_02
+      author: risk_engine
+      dbms: postgresql
+      changes:
+        - createSequence:
+            sequenceName: fraudulent_transactions_seq
+            startValue: 100
+            incrementBy: 100
+            maxValue: 9223372036854775807
+            minValue: 100
+            schemaName: public

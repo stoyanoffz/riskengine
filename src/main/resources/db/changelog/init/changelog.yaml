@@ -3,3 +3,7 @@ databaseChangeLog:
       file: db/changelog/init/tables.yaml
   - include:
       file: db/changelog/init/indexes.yaml
+  - include:
+      file: db/changelog/init/sequences.yaml
+  - include:
+      file: db/changelog/init/insert_blacklisted_countries.yaml

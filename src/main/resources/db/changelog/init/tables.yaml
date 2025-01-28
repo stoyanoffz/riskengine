@@ -77,11 +77,11 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: lat_coord
-                  type: numeric(6, 6)
+                  type: numeric(9, 5)
                   constraints:
                     nullable: false
               - column:
                   name: long_coord
-                  type: numeric(6, 6)
+                  type: numeric(9, 5)
                   constraints:
                     nullable: false

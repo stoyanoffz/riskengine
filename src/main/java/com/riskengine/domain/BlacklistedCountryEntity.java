@@ -11,8 +11,10 @@ import lombok.Setter;
 public class BlacklistedCountryEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @SequenceGenerator(name = "blacklisted_countries_seq", sequenceName = "blacklisted_countries_seq", allocationSize = 100)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "blacklisted_countries_seq")
+    @Column(name = "id", nullable = false, updatable = false)
+    private Long id;
 
     @Column(name = "identifier", nullable = false, length = 100)
     private String identifier;
