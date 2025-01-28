@@ -1,0 +1,87 @@
+databaseChangeLog:
+  - changeSet:
+      id: tables_01
+      author: risk_engine
+      dbms: postgresql
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: blacklisted_countries
+      changes:
+        - createTable:
+            tableName: blacklisted_countries
+            schemaName: public
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: identifier
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: country
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: tables_02
+      author: risk_engine
+      dbms: postgresql
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: fraudulent_transactions
+      changes:
+        - createTable:
+            tableName: fraudulent_transactions
+            schemaName: public
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: identifier
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: user_id
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: decimal(10, 2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: timestamp
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lat_coord
+                  type: numeric(6, 6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: long_coord
+                  type: numeric(6, 6)
+                  constraints:
+                    nullable: false

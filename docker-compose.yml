@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: my_password
+      POSTGRES_DB: risk_engine
+    networks:
+      - risk_engine_network
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    container_name: risk_engine
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/risk_engine
+      SPRING_DATASOURCE_USERNAME: my_user
+      SPRING_DATASOURCE_PASSWORD: my_password
+    networks:
+      - risk_engine_network
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+networks:
+  risk_engine_network:

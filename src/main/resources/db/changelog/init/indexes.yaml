@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: indexes_01
+      author: risk_engine
+      dbms: postgresql
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            indexExists:
+              indexName: blacklisted_countries_country_i
+      changes:
+        - createIndex:
+            tableName: blacklisted_countries
+            schemaName: public
+            columns:
+              - column:
+                  name: country
+            indexName: blacklisted_countries_country_i
+
+  - changeSet:
+      id: indexes_02
+      author: risk_engine
+      dbms: postgresql
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            indexExists:
+              indexName: fraudulent_transactions_user_id_i
+      changes:
+        - createIndex:
+            tableName: fraudulent_transactions
+            schemaName: public
+            columns:
+              - column:
+                  name: user_id
+            indexName: fraudulent_transactions_user_id_i
+
+  - changeSet:
+      id: indexes_03
+      author: risk_engine
+      dbms: postgresql
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            indexExists:
+              indexName: fraudulent_transactions_timestamp_i
+      changes:
+        - createIndex:
+            tableName: fraudulent_transactions
+            schemaName: public
+            columns:
+              - column:
+                  name: timestamp
+            indexName: fraudulent_transactions_timestamp_i

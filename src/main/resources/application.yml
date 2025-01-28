@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/risk_engine}
+    username: ${SPRING_DATASOURCE_USERNAME:my_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:my_password}
+    driver-class-name: org.postgresql.Driver
+  threads:
+    virtual:
+      enabled: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: public
+  liquibase:
+    default-schema: public
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
