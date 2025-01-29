@@ -27,16 +27,16 @@ public class FraudulentTransactionsLoadTest extends Simulation {
                             .post("/api/v1/fraudulent-transactions/status")
                             .body(StringBody(
                                     """
-                                    {
-                                        "transactionId": "${transactionId}",
-                                        "userId": "${userId}",
-                                        "amount": 1234.56,
-                                        "timestamp": "2025-01-25T12:28:00",
-                                        "country": "FR",
-                                        "latitude": 42.69770,
-                                        "longitude": 23.32190
-                                    }
-                                    """
+                                            {
+                                                "transactionId": "${transactionId}",
+                                                "userId": "${userId}",
+                                                "amount": 1234.56,
+                                                "timestamp": "2025-01-25T12:28:00",
+                                                "country": "FR",
+                                                "latitude": 42.69770,
+                                                "longitude": 23.32190
+                                            }
+                                            """
                             ))
                             .asJson()
             );
