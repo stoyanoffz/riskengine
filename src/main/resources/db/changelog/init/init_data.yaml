@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_data_01
+      author: risk_engine
+      dbms: postgresql
+      preConditions:
+        - onFail: MARK_RAN
+        - and:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(1) FROM public.blacklisted_countries
+      changes:
+        - sqlFile:
+            - relativeToChangelogFile: true
+            - path: data/insert_blacklisted_countries.sql
+
+  - changeSet:
+      id: init_data_02
+      author: risk_engine
+      dbms: postgresql
+      preConditions:
+        - onFail: MARK_RAN
+        - and:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(1) FROM public.fraudulent_transactions
+      changes:
+        - sqlFile:
+            - endDelimiter: \nGO
+            - relativeToChangelogFile: true
+            - path: data/insert_fraudulent_transactions.sql

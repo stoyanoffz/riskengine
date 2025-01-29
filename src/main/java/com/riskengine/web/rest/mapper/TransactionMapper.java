@@ -7,15 +7,11 @@ public final class TransactionMapper {
 
     private TransactionMapper() {}
 
-    public static FraudulentTransactionEntity toFraudulentTransactionEntity(
-            String transactionId,
-            String userId,
-            Transaction transaction
-    ) {
+    public static FraudulentTransactionEntity toFraudulentTransactionEntity(Transaction transaction) {
         final var transactionEntity = new FraudulentTransactionEntity();
 
-        transactionEntity.setIdentifier(transactionId);
-        transactionEntity.setUserId(userId);
+        transactionEntity.setIdentifier(transaction.transactionId());
+        transactionEntity.setUserId(transaction.userId());
         transactionEntity.setAmount(transaction.amount());
         transactionEntity.setTimestamp(transaction.timestamp());
         transactionEntity.setCountry(transaction.country());

@@ -2,7 +2,7 @@ package com.riskengine.service.impl;
 
 import com.riskengine.domain.FraudulentTransactionEntity;
 import com.riskengine.service.FraudService;
-import com.riskengine.service.TransactionService;
+import com.riskengine.service.FraudulentTransactionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class TransactionServiceImpl implements TransactionService {
+public class FraudulentTransactionServiceImpl implements FraudulentTransactionService {
 
     private final FraudService fraudService;
 

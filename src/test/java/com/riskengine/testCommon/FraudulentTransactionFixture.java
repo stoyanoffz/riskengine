@@ -68,6 +68,8 @@ public final class FraudulentTransactionFixture {
 
     public static Transaction buildTransaction() {
         return new Transaction(
+                IDENTIFIER,
+                USER_ID,
                 AMOUNT,
                 TIMESTAMP,
                 COUNTRY,

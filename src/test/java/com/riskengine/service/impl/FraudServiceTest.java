@@ -147,7 +147,7 @@ public class FraudServiceTest {
     }
 
     @Test
-    public void givenCountryWhenIsInBlacklistedCountryThenVerifyInteractions() throws ExecutionException, InterruptedException {
+    public void givenCountryWhenIsInBlacklistedCountryThenVerifyInteractions() {
         // GIVEN
         String country = "country";
 
@@ -193,7 +193,7 @@ public class FraudServiceTest {
     }
 
     @Test
-    public void givenUserIdWhenHasTransactionsInMultipleCountriesThenVerifyInteractions() throws ExecutionException, InterruptedException {
+    public void givenUserIdWhenHasTransactionsInMultipleCountriesThenVerifyInteractions() {
         // GIVEN
         String userId = "userId";
         Long transactionsInDifferentCountriesCount = 2L;

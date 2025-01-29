@@ -6,10 +6,10 @@ databaseChangeLog:
       changes:
         - createSequence:
             sequenceName: blacklisted_countries_seq
-            startValue: 100
-            incrementBy: 100
+            startValue: 10
+            incrementBy: 10
             maxValue: 9223372036854775807
-            minValue: 100
+            minValue: 10
             schemaName: public
   - changeSet:
       id: sequences_02
@@ -18,8 +18,8 @@ databaseChangeLog:
       changes:
         - createSequence:
             sequenceName: fraudulent_transactions_seq
-            startValue: 100
-            incrementBy: 100
+            startValue: 10
+            incrementBy: 10
             maxValue: 9223372036854775807
-            minValue: 100
+            minValue: 10
             schemaName: public

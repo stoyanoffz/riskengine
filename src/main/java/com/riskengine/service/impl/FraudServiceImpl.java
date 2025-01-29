@@ -39,7 +39,7 @@ public class FraudServiceImpl implements FraudService {
     @Override
     public CompletableFuture<Boolean> hasSuspiciousLocationChange(String userId) {
         LocalDateTime now = OffsetDateTime.now(ZoneOffset.UTC).toLocalDateTime();
-        LocalDateTime from = now.minusMinutes(1);
+        LocalDateTime from = now.minusMinutes(30);
 
         return CompletableFuture.supplyAsync(
                 () -> {

@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class TransactionServiceTest {
+public class FraudulentTransactionServiceTest {
 
     @Mock
     private FraudService fraudService;
 
     @InjectMocks
-    private TransactionServiceImpl transactionService;
+    private FraudulentTransactionServiceImpl fraudulentTransactionService;
 
     @Test
     public void givenFraudulentTransactionEntityWhenIsFraudulentTransactionThenVerifyResult() {
@@ -40,7 +40,7 @@ public class TransactionServiceTest {
                 .thenReturn(nonFraudulentResult);
 
         // WHEN
-        boolean result = transactionService.isFraudulentTransaction(fraudulentTransactionEntity);
+        boolean result = fraudulentTransactionService.isFraudulentTransaction(fraudulentTransactionEntity);
 
         // THEN
         assertTrue(result);
@@ -64,7 +64,7 @@ public class TransactionServiceTest {
         // THEN
         assertThrows(RuntimeException.class, () -> {
             // WHEN
-            transactionService.isFraudulentTransaction(fraudulentTransactionEntity);
+            fraudulentTransactionService.isFraudulentTransaction(fraudulentTransactionEntity);
         });
     }
 
@@ -83,7 +83,7 @@ public class TransactionServiceTest {
         when(fraudService.isInBlacklistedCountry(country)).thenReturn(nonFraudulentResult);
 
         // WHEN
-        transactionService.isFraudulentTransaction(fraudulentTransactionEntity);
+        fraudulentTransactionService.isFraudulentTransaction(fraudulentTransactionEntity);
 
         // THEN
         verify(fraudService).hasExceededTransactionLimit(userId);

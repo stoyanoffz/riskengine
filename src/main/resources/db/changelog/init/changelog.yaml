@@ -6,4 +6,4 @@ databaseChangeLog:
   - include:
       file: db/changelog/init/sequences.yaml
   - include:
-      file: db/changelog/init/insert_blacklisted_countries.yaml
+      file: db/changelog/init/init_data.yaml

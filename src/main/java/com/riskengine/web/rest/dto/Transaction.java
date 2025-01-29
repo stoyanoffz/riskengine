@@ -8,6 +8,12 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record Transaction(
+        @NotNull
+        @NotBlank
+        String transactionId,
+        @NotNull
+        @NotBlank
+        String userId,
         @Digits(integer = 8, fraction = 2)
         BigDecimal amount,
         LocalDateTime timestamp,

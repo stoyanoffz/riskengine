@@ -2,7 +2,7 @@ package com.riskengine.service;
 
 import com.riskengine.domain.FraudulentTransactionEntity;
 
-public interface TransactionService {
+public interface FraudulentTransactionService {
 
     boolean isFraudulentTransaction(FraudulentTransactionEntity fraudulentTransactionEntity);
 

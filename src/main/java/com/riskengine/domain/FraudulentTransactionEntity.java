@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class FraudulentTransactionEntity {
 
     @Id
-    @SequenceGenerator(name = "fraudulent_transactions_seq", sequenceName = "fraudulent_transactions_seq", allocationSize = 100)
+    @SequenceGenerator(name = "fraudulent_transactions_seq", sequenceName = "fraudulent_transactions_seq", allocationSize = 10)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fraudulent_transactions_seq")
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;

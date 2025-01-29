@@ -15,15 +15,11 @@ public class TransactionMapperTest {
         Transaction transaction = FraudulentTransactionFixture.buildTransaction();
 
         // WHEN
-        FraudulentTransactionEntity result = TransactionMapper.toFraudulentTransactionEntity(
-                FraudulentTransactionFixture.IDENTIFIER,
-                FraudulentTransactionFixture.USER_ID,
-                transaction
-        );
+        FraudulentTransactionEntity result = TransactionMapper.toFraudulentTransactionEntity(transaction);
 
         // THEN
-        assertEquals(FraudulentTransactionFixture.IDENTIFIER, result.getIdentifier());
-        assertEquals(FraudulentTransactionFixture.USER_ID, result.getUserId());
+        assertEquals(transaction.transactionId(), result.getIdentifier());
+        assertEquals(transaction.userId(), result.getUserId());
         assertEquals(transaction.amount(), result.getAmount());
         assertEquals(transaction.timestamp(), result.getTimestamp());
         assertEquals(transaction.country(), result.getCountry());
